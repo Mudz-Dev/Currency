@@ -15,5 +15,19 @@ namespace Currency.Data.ExchangeAPI.Data
         public string time_last_update { get; set; }
         public string time_next_update { get; set; }
         public ConversionRate conversion_rates { get; set; }
+
+        public Double GetRate(string code)
+        {
+
+            var prop = conversion_rates.GetType().GetProperty(code);
+
+            return (double) prop.GetValue(conversion_rates);
+
+        }
+
+        public List<string> GetSupportedCountryCodes()
+        {
+            return conversion_rates.GetType().GetProperties().Select(p => p.Name).ToList();
+        }
     }
 }

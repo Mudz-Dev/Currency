@@ -22,10 +22,18 @@ namespace Currency.Data
             set;
         }
 
+        public double Rate
+        {
+            get;
+            set;
+        }
+
         public decimal Amount
         {
             get;
             set;
         }
+
+
     }
 }

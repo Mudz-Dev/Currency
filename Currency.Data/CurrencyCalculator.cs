@@ -29,7 +29,12 @@ namespace Currency.Data
 
             if (call != null)
             {
+                List<string> countryCodes = call.GetSupportedCountryCodes();
 
+                foreach(Currency c in Currencies)
+                {
+                    c.Rate = call.GetRate(c.Code);
+                }
             }
 
         }

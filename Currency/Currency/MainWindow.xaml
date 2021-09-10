@@ -11,13 +11,13 @@
         <ListView Name="lstCurrencies" Header="Currencies" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid HorizontalAlignment="Stretch" Margin="2">
+                    <Grid Width="500" Margin="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding Code}"></TextBlock>
-                        <TextBox Grid.Column="1" Text="{Binding Amount, Mode=TwoWay}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Rate}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
