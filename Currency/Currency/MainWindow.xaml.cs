@@ -31,7 +31,7 @@ namespace Currency
         {
             this.InitializeComponent();
 
-            currencyCalc = new CurrencyCalculator();
+            currencyCalc = new CurrencyCalculator("USD");
             lstCurrencies.ItemsSource = currencyCalc.Currencies;
         }
 
