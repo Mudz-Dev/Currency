@@ -9,15 +9,25 @@
 
     <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <ListView Name="lstCurrencies" Header="Currencies" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="500" Margin="2">
+                    <Grid Margin="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Code}"></TextBlock>
-                        <TextBlock Grid.Column="1" Text="{Binding Rate}"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="{Binding Code}"></TextBlock>
+                        <TextBox Grid.Column="1" Grid.Row="0"  Text="{Binding Amount}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Text="{Binding Rate}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
