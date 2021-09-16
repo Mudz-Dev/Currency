@@ -28,7 +28,7 @@ namespace Currency.Data
             set;
         }
 
-        public decimal Amount
+        public double Amount
         {
             get;
             set;

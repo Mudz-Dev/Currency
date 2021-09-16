@@ -8,6 +8,19 @@
     mc:Ignorable="d">
 
     <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Name="grdBaseCurrency" Margin="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Name="txtBaseCode" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text=""></TextBlock>
+            <TextBox Name="txtBaseAmount" Grid.Column="1" Grid.Row="0"  Text="0" TextChanged="txtBaseAmount_TextChanged" />
+            <TextBlock Name="txtBaseRate" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Text="0" Foreground="Gray"/>
+        </Grid>
         <ListView Name="lstCurrencies" Header="Currencies" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -26,12 +39,11 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="{Binding Code}"></TextBlock>
-                        <TextBox Grid.Column="1" Grid.Row="0"  Text="{Binding Amount}"/>
-                        <TextBlock Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Text="{Binding Rate}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0"  Text="{Binding Amount}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Text="{Binding Rate}" Foreground="Gray"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
     </StackPanel>
 </Window>
