@@ -1,0 +1,42 @@
+﻿<Window
+    x:Class="Currency.CurrencyConvert"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Currency"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <ListView Name="lstCurrencies" Header="Currencies" 
+                  HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Stretch"
+                  Margin="2">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    <Setter Property="Margin" Value="2"></Setter>
+                    <Setter Property="BorderBrush" Value="Gray"></Setter>
+                    <Setter Property="BorderThickness" Value="2"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="{Binding Code}"></TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="0"  Text="{Binding Amount}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Text="{Binding Rate}" Foreground="Gray"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
+</Window>
