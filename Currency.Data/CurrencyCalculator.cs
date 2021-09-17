@@ -13,8 +13,10 @@ namespace Currency.Data
     {
         public Currency BaseCurrency
         {
-            get;
-            set;
+            get
+            {
+                return Currencies.Where(c => c.IsBaseCurrency = true).FirstOrDefault();
+            }
         }
         public ObservableCollection<Currency> Currencies
         {
@@ -37,9 +39,8 @@ namespace Currency.Data
         public void LoadRates()
         {
 
-            this.BaseCurrency = new Currency { Country = "United States Of America", Code = BaseCode, Amount = 1, Rate = 1 };
-
             Currencies = new ObservableCollection<Currency>();
+            Currencies.Add(new Currency { Country = "United States Of America", Code = BaseCode, Amount = 1, Rate = 1, IsBaseCurrency = true }); ;
             Currencies.Add(new Currency { Country = "New Zealand", Code = "NZD", Amount = 0 });
             Currencies.Add(new Currency { Country = "Australia", Code = "AUD", Amount = 0 });
 

@@ -8,23 +8,16 @@
     mc:Ignorable="d">
 
     <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid Name="grdBaseCurrency" Margin="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
-            <TextBlock Name="txtBaseCode" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text=""></TextBlock>
-            <TextBox Name="txtBaseAmount" Grid.Column="1" Grid.Row="0"  Text="0" TextChanged="txtBaseAmount_TextChanged" />
-            <TextBlock Name="txtBaseRate" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Text="0" Foreground="Gray"/>
-        </Grid>
-        <ListView Name="lstCurrencies" Header="Currencies" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+        <ListView Name="lstCurrencies" Header="Currencies" 
+                  HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Stretch"
+                  Margin="2">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    <Setter Property="Margin" Value="2"></Setter>
+                    <Setter Property="BorderBrush" Value="Gray"></Setter>
+                    <Setter Property="BorderThickness" Value="2"></Setter>
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>

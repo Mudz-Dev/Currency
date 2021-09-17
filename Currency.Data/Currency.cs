@@ -34,6 +34,12 @@ namespace Currency.Data
             set;
         }
 
+        public bool IsBaseCurrency
+        {
+            get;
+            set;
+        }
+
 
     }
 }

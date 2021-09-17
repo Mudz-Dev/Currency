@@ -38,24 +38,9 @@ namespace Currency
         {
 
             currencyCalc = new CurrencyCalculator("USD");
-
-            txtBaseCode.Text = currencyCalc.BaseCurrency.Code;
-            txtBaseAmount.Text = currencyCalc.BaseCurrency.Amount.ToString("c2");
-            txtBaseRate.Text = currencyCalc.BaseCurrency.Rate.ToString();
-
             lstCurrencies.ItemsSource = currencyCalc.Currencies;
 
         }
 
-
-        private void txtBaseAmount_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if(currencyCalc != null && txtBaseAmount.Text.Length > 0)
-            {
-                currencyCalc.BaseCurrency.Amount = double.Parse(txtBaseAmount.Text ?? "0");
-                currencyCalc.CalculateAmounts();
-                lstCurrencies.ItemsSource = currencyCalc.Currencies;
-            }
-        }
     }
 }
